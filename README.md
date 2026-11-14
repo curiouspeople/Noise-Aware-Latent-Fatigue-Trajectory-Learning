@@ -16,9 +16,3 @@
 ## 数据与路径
 
 源脚本混用当前工作目录和脚本目录定位 `dataset`、`outputs`；复制后路径基准已经改变。默认情况下，数据读取器在 `code/dataset/` 查找数据；其他脚本可能从当前工作目录读取数据，并将结果写到 `code/outputs/`。本目录不包含这些输入，独立运行前须检查各脚本路径和输出位置，不应假定复制后可以直接复现。
-
-## 已知限制
-
-历史 SEED-VIG 回归及消融在划分前平滑标签，可能跨界且改变测试目标；SFDE 旧脚本先拼接记录再构窗，可能跨受试者或会话边界。SEED-VIG 身份映射、时间重叠和部分论文数值的来源仍待核实。`protocol.py` 未接入上述入口，因此这里的代码不是已修复的正式实验流程。原项目审计记录位于 `experiments/bspc_revision/reports/`。
-
-代码依赖至少包括 Python、NumPy、SciPy、PyTorch、scikit-learn 和 Matplotlib；部分绘图需要 MNE。精确版本及独立环境尚未验证。
